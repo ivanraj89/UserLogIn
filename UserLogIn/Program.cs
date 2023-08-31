@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using UserLogIn.Views.Data;
+
 namespace UserLogIn
 {
     public class Program
@@ -8,6 +12,11 @@ namespace UserLogIn
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 

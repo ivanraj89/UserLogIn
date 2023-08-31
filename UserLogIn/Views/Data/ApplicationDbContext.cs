@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UserLogIn.Models;
 
 namespace UserLogIn.Views.Data
 {
@@ -6,7 +7,8 @@ namespace UserLogIn.Views.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
-
         }
+        
+        public DbSet<User> Users { get; set; }
     }
 }
